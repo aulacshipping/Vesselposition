@@ -10,36 +10,45 @@
   :root{ --ink:#0f1a33; --ink-soft:#4a5a7a; --brand:#1a3d8f; --brand-deep:#122c6b; --surface:#ffffff; --surface-alt:#eef1f9; --surface-sunk:#e4e9f5; --line:#d7deee; --accent:#f5a623; --eta:#157a45; --eta-bg:#e4f4ea; --etd:#b8291f; --etd-bg:#fbe7e5; --arrived:#1d4fc4; --arrived-bg:#e6ecfc; --pob:#c0590c; --pob-bg:#fbecdd; --shadow: 0 1px 2px rgba(15,26,51,.04), 0 8px 24px -12px rgba(15,26,51,.14); }
   @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink:#eef2fb; --ink-soft:#a9b6d6; --brand:#7fa0ff; --brand-deep:#c4d4ff; --surface:#131c33; --surface-alt:#0d1426; --surface-sunk:#0a0f1e; --line:#26314f; --accent:#f5b74a; --eta:#4fd88a; --eta-bg:#123324; --etd:#ff8177; --etd-bg:#3a1512; --arrived:#8fb3ff; --arrived-bg:#101d3d; --pob:#ffab5c; --pob-bg:#3a2408; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6); } }
   *{box-sizing:border-box;} html,body{height:100%;} body{ margin:0; background:var(--surface-alt); color:var(--ink); font-family:'IBM Plex Sans', Arial, sans-serif; -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; height:100vh; overflow:hidden; }
-  header{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 34px; background:var(--surface); border-bottom:1px solid var(--line); flex-shrink:0; }
-  .brand{display:flex;align-items:center;gap:16px;} .brand svg{width:118px;height:auto;flex-shrink:0;} .brand-text{display:flex;flex-direction:column;line-height:1.05;} .brand-text .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:11px;font-weight:600;letter-spacing:.14em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; } .brand-text .title{ font-family:'Archivo', sans-serif; font-weight:800; font-size:22px; color:var(--ink); text-wrap:balance; }
   
-  .header-right{display:flex; align-items:center; gap:20px;} 
-  #clock{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:18px; color:var(--ink); background:var(--surface-sunk); border:1px solid var(--line); padding:6px 14px; border-radius:8px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .live-pill{ display:flex; align-items:center; gap:8px; background:var(--eta-bg); color:var(--eta); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13px; letter-spacing:.06em; padding:7px 14px 7px 11px; border-radius:99px; } .live-dot{width:8px;height:8px;border-radius:50%;background:var(--eta); box-shadow:0 0 0 0 var(--eta); animation:pulse 2s infinite;} @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(21,122,69,.45);} 70%{box-shadow:0 0 0 8px rgba(21,122,69,0);} 100%{box-shadow:0 0 0 0 rgba(21,122,69,0);} }
+  /* Thu nhỏ padding header */
+  header{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 24px; background:var(--surface); border-bottom:1px solid var(--line); flex-shrink:0; }
+  .brand{display:flex;align-items:center;gap:14px;} .brand svg{width:110px;height:auto;flex-shrink:0;} .brand-text{display:flex;flex-direction:column;line-height:1.05;} .brand-text .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:10px;font-weight:600;letter-spacing:.14em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; } .brand-text .title{ font-family:'Archivo', sans-serif; font-weight:800; font-size:20px; color:var(--ink); text-wrap:balance; }
   
-  main{flex:1; padding:20px 34px 25px 34px; display:flex; flex-direction:column; min-height:0;} 
-  .grid{ flex:1; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); gap:16px; } @media (max-width:1400px){ .grid{grid-template-columns:repeat(3,1fr); grid-template-rows:auto;} } @media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr); grid-template-rows:auto;} } @media (max-width:640px){ .grid{grid-template-columns:1fr; grid-template-rows:auto;} }
-  .card{ background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:14px 16px; display:flex; flex-direction:column; justify-content:flex-start; gap:12px; border-top:3px solid var(--brand); height:100%; min-height:0; overflow:hidden; } 
+  .header-right{display:flex; align-items:center; gap:16px;} 
+  #clock{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:16px; color:var(--ink); background:var(--surface-sunk); border:1px solid var(--line); padding:6px 12px; border-radius:8px; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .live-pill{ display:flex; align-items:center; gap:8px; background:var(--eta-bg); color:var(--eta); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px; letter-spacing:.06em; padding:6px 12px; border-radius:99px; } .live-dot{width:8px;height:8px;border-radius:50%;background:var(--eta); box-shadow:0 0 0 0 var(--eta); animation:pulse 2s infinite;} @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(21,122,69,.45);} 70%{box-shadow:0 0 0 8px rgba(21,122,69,0);} 100%{box-shadow:0 0 0 0 rgba(21,122,69,0);} }
+  
+  /* Thu nhỏ padding main & khoảng cách gap của grid */
+  main{flex:1; padding:12px 24px 16px 24px; display:flex; flex-direction:column; min-height:0;} 
+  .grid{ flex:1; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); gap:12px; } @media (max-width:1400px){ .grid{grid-template-columns:repeat(3,1fr); grid-template-rows:auto;} } @media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr); grid-template-rows:auto;} } @media (max-width:640px){ .grid{grid-template-columns:1fr; grid-template-rows:auto;} }
+  
+  /* Thu nhỏ padding bên trong mỗi card */
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); padding:12px 14px; display:flex; flex-direction:column; justify-content:flex-start; gap:8px; border-top:3px solid var(--brand); height:100%; min-height:0; overflow:hidden; } 
   .card-head{display:flex; align-items:baseline; justify-content:space-between; gap:8px;} 
-  .vessel-name{ font-family:'Archivo', sans-serif; font-weight:800; font-size:18px; color:var(--ink); text-wrap:balance; } 
-  .voy{ font-family:'IBM Plex Mono', monospace; font-size:18px; font-weight:700; color:var(--ink); white-space:nowrap; }
+  .vessel-name{ font-family:'Archivo', sans-serif; font-weight:800; font-size:17.5px; color:var(--ink); text-wrap:balance; } 
+  .voy{ font-family:'IBM Plex Mono', monospace; font-size:17px; font-weight:700; color:var(--ink); white-space:nowrap; }
   
   .route{ font-size:13.5px; color:var(--ink-soft); font-weight:500; display:flex; align-items:center; gap:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-height: 20px;} 
   .route b{color:var(--ink); font-weight:600;} .route .arrow{color:var(--brand); font-weight:700;}
   
-  .meta-row{ display:flex; flex-wrap:nowrap; justify-content:space-between; gap:6px 10px; font-size:12.5px; color:var(--ink-soft); align-items: center; min-height: 24px;} 
+  /* CỐ ĐỊNH CỘT LAYCAN: Sử dụng Flex, chia tỷ lệ cố định cho Laycan */
+  .meta-row{ display:flex; justify-content:space-between; gap:10px; font-size:12.5px; color:var(--ink-soft); align-items: center; min-height: 24px;} 
   .meta-row .chip{ background:var(--surface-alt); border:1px solid var(--line); border-radius:6px; padding:2px 8px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } 
-  .meta-row .chip b{color:var(--ink); font-weight:600;} .laycan-active{color:var(--brand); font-weight:700;}
+  .meta-row .cargo-chip { flex: 1; } /* Cargo co giãn chiếm hết khoảng trống */
+  .meta-row .laycan-chip { flex: 0 0 115px; text-align: left; } /* Ép độ rộng cố định cho cột Laycan thẳng đứng 100% */
+  .meta-row .chip b{color:var(--ink); font-weight:600;} 
   
-  .rob-row{ display:flex; flex-wrap:nowrap; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--ink-soft); background:var(--surface-alt); border:1px solid var(--line); border-radius:8px; padding:8px 10px; min-height: 36px; }
+  .rob-row{ display:flex; flex-wrap:nowrap; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--ink-soft); background:var(--surface-alt); border:1px solid var(--line); border-radius:8px; padding:6px 10px; min-height: 32px; }
   .rob-label{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-right:2px; } 
   .rob-val{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; } 
   .rob-val b{color:var(--brand); font-weight:700;} 
   .rob-val.rob-low{ background:var(--etd-bg); color:var(--etd); border-radius:5px; padding:2px 6px; } 
   .rob-val.rob-low b{color:var(--etd);} 
   
-  .timeline{ flex:1; margin-top:2px; padding-top:12px; border-top:1px dashed var(--line); display:flex; flex-direction:column; justify-content:flex-start; gap:8px; overflow:hidden; } 
-  .tl-row{display:flex; align-items:flex-start; gap:9px;} 
+  /* Timeline thu nhỏ khoảng cách */
+  .timeline{ flex:1; margin-top:2px; padding-top:8px; border-top:1px dashed var(--line); display:flex; flex-direction:column; justify-content:flex-start; gap:5px; overflow:hidden; } 
+  .tl-row{display:flex; align-items:flex-start; gap:8px;} 
   .tl-time{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; font-weight:500; color:var(--ink-soft); min-width:110px; font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:2px; } 
   .tl-status{ font-size:13.5px; font-weight:700; padding:4px 10px; border-radius:6px; display:inline-flex; align-items:center; gap:6px; line-height:1.3; } 
   .tl-status::before{content:""; width:7px; height:7px; border-radius:50%; flex-shrink:0;} 
@@ -84,8 +93,8 @@
         </div>
         
         <div class="meta-row">
-          <span class="chip"><b>Cargo</b> ${v.cargo || '&mdash;'}</span>
-          <span class="chip"><b>Laycan</b> ${v.laycan || '&mdash;'}</span>
+          <span class="chip cargo-chip"><b>Cargo</b> ${v.cargo || '&mdash;'}</span>
+          <span class="chip laycan-chip"><b>Laycan</b> ${v.laycan || '&mdash;'}</span>
         </div>
         
         ${v.rob ? `
