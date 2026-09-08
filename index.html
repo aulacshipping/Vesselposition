@@ -7,8 +7,8 @@
 <title>Aulac Fleet Position</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
-  :root{ --ink:#0f1a33; --ink-soft:#4a5a7a; --brand:#1a3d8f; --brand-deep:#122c6b; --surface:#ffffff; --surface-alt:#eef1f9; --surface-sunk:#e4e9f5; --line:#d7deee; --accent:#f5a623; --eta:#157a45; --eta-bg:#e4f4ea; --etd:#b8291f; --etd-bg:#fbe7e5; --arrived:#1d4fc4; --arrived-bg:#e6ecfc; --pob:#c0590c; --pob-bg:#fbecdd; --shadow: 0 1px 2px rgba(15,26,51,.04), 0 8px 24px -12px rgba(15,26,51,.14); }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink:#eef2fb; --ink-soft:#a9b6d6; --brand:#7fa0ff; --brand-deep:#c4d4ff; --surface:#131c33; --surface-alt:#0d1426; --surface-sunk:#0a0f1e; --line:#26314f; --accent:#f5b74a; --eta:#4fd88a; --eta-bg:#123324; --etd:#ff8177; --etd-bg:#3a1512; --arrived:#8fb3ff; --arrived-bg:#101d3d; --pob:#ffab5c; --pob-bg:#3a2408; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6); } }
+  :root{ --ink:#0f1a33; --ink-soft:#4a5a7a; --brand:#1a3d8f; --brand-deep:#122c6b; --surface:#ffffff; --surface-alt:#eef1f9; --surface-sunk:#e4e9f5; --line:#d7deee; --accent:#f5a623; --eta:#157a45; --eta-bg:#e4f4ea; --etd:#b8291f; --etd-bg:#fbe7e5; --arrived:#1d4fc4; --arrived-bg:#e6ecfc; --pob:#c0590c; --pob-bg:#fbecdd; --allfast:#6025c0; --allfast-bg:#f3e8ff; --shadow: 0 1px 2px rgba(15,26,51,.04), 0 8px 24px -12px rgba(15,26,51,.14); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink:#eef2fb; --ink-soft:#a9b6d6; --brand:#7fa0ff; --brand-deep:#c4d4ff; --surface:#131c33; --surface-alt:#0d1426; --surface-sunk:#0a0f1e; --line:#26314f; --accent:#f5b74a; --eta:#4fd88a; --eta-bg:#123324; --etd:#ff8177; --etd-bg:#3a1512; --arrived:#8fb3ff; --arrived-bg:#101d3d; --pob:#ffab5c; --pob-bg:#3a2408; --allfast:#c084fc; --allfast-bg:#3b0764; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6); } }
   *{box-sizing:border-box;} html,body{height:100%;} body{ margin:0; background:var(--surface-alt); color:var(--ink); font-family:'IBM Plex Sans', Arial, sans-serif; -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; height:100vh; overflow:hidden; }
   
   header{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 24px; background:var(--surface); border-bottom:1px solid var(--line); flex-shrink:0; }
@@ -29,11 +29,11 @@
   .route{ font-size:13.5px; color:var(--ink-soft); font-weight:500; display:flex; align-items:center; gap:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-height: 20px;} 
   .route b{color:var(--ink); font-weight:600;} .route .arrow{color:var(--brand); font-weight:700;}
   
-  /* CỐ ĐỊNH KÍCH THƯỚC LAYCAN 115px, CARGO TỰ ĐỘNG GIÃN */
+  /* CỐ ĐỊNH KÍCH THƯỚC LAYCAN 120px ĐỂ HIỂN THỊ ĐỦ, CARGO TỰ ĐỘNG GIÃN */
   .meta-row{ display:flex; justify-content:space-between; gap:8px; font-size:12.5px; color:var(--ink-soft); align-items: center; min-height: 24px;} 
   .meta-row .chip{ background:var(--surface-alt); border:1px solid var(--line); border-radius:6px; padding:2px 8px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } 
-  .meta-row .cargo-chip { flex: 1; } /* Tự động giãn chiếm không gian còn lại */
-  .meta-row .laycan-chip { flex: 0 0 120px; text-align: left; } /* Cố định độ rộng 115px để luôn bằng nhau */
+  .meta-row .cargo-chip { flex: 1; } 
+  .meta-row .laycan-chip { flex: 0 0 120px; text-align: left; } 
   .meta-row .chip b{color:var(--ink); font-weight:600;} 
   
   .rob-row{ display:flex; flex-wrap:nowrap; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--ink-soft); background:var(--surface-alt); border:1px solid var(--line); border-radius:8px; padding:8px 10px; min-height: 36px; }
@@ -52,6 +52,7 @@
   .st-etd{color:var(--etd); background:var(--etd-bg);} 
   .st-arrived{color:var(--arrived); background:var(--arrived-bg);} 
   .st-pob{color:var(--pob); background:var(--pob-bg);} 
+  .st-allfast{color:var(--allfast); background:var(--allfast-bg);}
 </style>
 </head>
 <body>
