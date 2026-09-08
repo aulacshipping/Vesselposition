@@ -38,7 +38,6 @@
   .rob-val.rob-low{ background:var(--etd-bg); color:var(--etd); border-radius:5px; padding:2px 6px; } 
   .rob-val.rob-low b{color:var(--etd);} 
   
-  /* Timeline cố định chiều cao, đổ từ trên xuống */
   .timeline{ flex:1; margin-top:2px; padding-top:12px; border-top:1px dashed var(--line); display:flex; flex-direction:column; justify-content:flex-start; gap:8px; overflow:hidden; } 
   .tl-row{display:flex; align-items:flex-start; gap:9px;} 
   .tl-time{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; font-weight:500; color:var(--ink-soft); min-width:110px; font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:2px; } 
@@ -85,8 +84,8 @@
         </div>
         
         <div class="meta-row">
-          <span class="chip"><b>Cargo</b> ${v.cargo}</span>
-          ${v.laycan ? `<span class="chip"><b>Laycan</b> ${v.laycan}</span>` : ''}
+          <span class="chip"><b>Cargo</b> ${v.cargo || '&mdash;'}</span>
+          <span class="chip"><b>Laycan</b> ${v.laycan || '&mdash;'}</span>
         </div>
         
         ${v.rob ? `
