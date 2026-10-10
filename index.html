@@ -7,66 +7,52 @@
 <title>Aulac Fleet Position</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
-  :root{ --ink:#0f1a33; --ink-soft:#4a5a7a; --brand:#1a3d8f; --brand-deep:#122c6b; --surface:#ffffff; --surface-alt:#eef1f9; --surface-sunk:#e4e9f5; --line:#d7deee; --accent:#f5a623; --eta:#157a45; --eta-bg:#e4f4ea; --etd:#b8291f; --etd-bg:#fbe7e5; --arrived:#1d4fc4; --arrived-bg:#e6ecfc; --pob:#c0590c; --pob-bg:#fbecdd; --allfast:#6025c0; --allfast-bg:#f3e8ff; --shadow: 0 1px 2px rgba(15,26,51,.04), 0 8px 24px -12px rgba(15,26,51,.14); }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink:#eef2fb; --ink-soft:#a9b6d6; --brand:#7fa0ff; --brand-deep:#c4d4ff; --surface:#131c33; --surface-alt:#0d1426; --surface-sunk:#0a0f1e; --line:#26314f; --accent:#f5b74a; --eta:#4fd88a; --eta-bg:#123324; --etd:#ff8177; --etd-bg:#3a1512; --arrived:#8fb3ff; --arrived-bg:#101d3d; --pob:#ffab5c; --pob-bg:#3a2408; --allfast:#c084fc; --allfast-bg:#3b0764; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6); } }
+  :root{ --ink:#0f1a33; --ink-soft:#4a5a7a; --brand:#1a3d8f; --brand-deep:#122c6b; --surface:#ffffff; --surface-alt:#eef1f9; --surface-sunk:#e4e9f5; --line:#d7deee; --accent:#f5a623; --eta:#157a45; --eta-bg:#e4f4ea; --etd:#b8291f; --etd-bg:#fbe7e5; --pob:#c0590c; --pob-bg:#fbecdd; --shadow: 0 1px 2px rgba(15,26,51,.04), 0 8px 24px -12px rgba(15,26,51,.14); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink:#eef2fb; --ink-soft:#a9b6d6; --brand:#7fa0ff; --brand-deep:#c4d4ff; --surface:#131c33; --surface-alt:#0d1426; --surface-sunk:#0a0f1e; --line:#26314f; --accent:#f5b74a; --eta:#4fd88a; --eta-bg:#123324; --etd:#ff8177; --etd-bg:#3a1512; --pob:#ffab5c; --pob-bg:#3a2408; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6); } }
   *{box-sizing:border-box;} html,body{height:100%;} body{ margin:0; background:var(--surface-alt); color:var(--ink); font-family:'IBM Plex Sans', Arial, sans-serif; -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; height:100vh; overflow:hidden; }
 
   header{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 24px; background:var(--surface); border-bottom:1px solid var(--line); flex-shrink:0; }
-  .brand{display:flex;align-items:center;gap:14px;} .brand svg{width:110px;height:auto;flex-shrink:0;} .brand-text{display:flex;flex-direction:column;line-height:1.05;} .brand-text .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:10px;font-weight:600;letter-spacing:.14em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; } .brand-text .title{ font-family:'Archivo', sans-serif; font-weight:800; font-size:20px; color:var(--ink); text-wrap:balance; }
+  .brand{display:flex;align-items:center;gap:14px;} .brand svg{width:110px;height:auto;flex-shrink:0;} .brand-text{display:flex;flex-direction:column;line-height:1.05;} .brand-text .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px;font-weight:600;letter-spacing:.14em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; } .brand-text .title{ font-family:'Archivo', sans-serif; font-weight:800; font-size:24px; color:var(--ink); text-wrap:balance; }
 
   .header-right{display:flex; align-items:center; gap:16px;}
-  #clock{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:16px; color:var(--ink); background:var(--surface-sunk); border:1px solid var(--line); padding:6px 12px; border-radius:8px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .live-pill{ display:flex; align-items:center; gap:8px; background:var(--eta-bg); color:var(--eta); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px; letter-spacing:.06em; padding:6px 12px; border-radius:99px; } .live-dot{width:8px;height:8px;border-radius:50%;background:var(--eta); box-shadow:0 0 0 0 var(--eta); animation:pulse 2s infinite;} @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(21,122,69,.45);} 70%{box-shadow:0 0 0 8px rgba(21,122,69,0);} 100%{box-shadow:0 0 0 0 rgba(21,122,69,0);} }
-  .update-info{display:flex; flex-direction:column; align-items:flex-end; line-height:1.15;} .update-label{font-family:'IBM Plex Mono', monospace; font-size:9.5px; font-weight:600; letter-spacing:.1em; color:var(--ink-soft); text-transform:uppercase; margin-bottom:3px;} .update-time{font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap;}
+  #clock{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:19px; color:var(--ink); background:var(--surface-sunk); border:1px solid var(--line); padding:6px 12px; border-radius:8px; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .live-pill{ display:flex; align-items:center; gap:8px; background:var(--eta-bg); color:var(--eta); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px; letter-spacing:.06em; padding:6px 12px; border-radius:99px; } .live-dot{width:8px;height:8px;border-radius:50%;background:var(--eta); box-shadow:0 0 0 0 var(--eta); animation:pulse 2s infinite;} @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(21,122,69,.45);} 70%{box-shadow:0 0 0 8px rgba(21,122,69,0);} 100%{box-shadow:0 0 0 0 rgba(21,122,69,0);} }
+  .update-info{display:flex; flex-direction:column; align-items:flex-end; line-height:1.15;} .update-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:600; letter-spacing:.1em; color:var(--ink-soft); text-transform:uppercase; margin-bottom:3px;} .update-time{font-family:'IBM Plex Mono', monospace; font-size:16px; font-weight:600; color:var(--ink); white-space:nowrap;}
 
   main{flex:1; padding:12px 24px 16px 24px; display:flex; flex-direction:column; min-height:0;}
   .grid{ flex:1; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); gap:12px; } @media (max-width:1400px){ .grid{grid-template-columns:repeat(3,1fr); grid-template-rows:auto;} } @media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr); grid-template-rows:auto;} } @media (max-width:640px){ .grid{grid-template-columns:1fr; grid-template-rows:auto;} }
 
-  .card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); padding:12px 14px; display:flex; flex-direction:column; justify-content:flex-start; gap:8px; border-top:3px solid var(--brand); height:100%; min-height:0; overflow-y:auto; overflow-x:hidden; }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); padding:14px 16px; display:flex; flex-direction:column; justify-content:flex-start; gap:9px; border-left:4px solid var(--line); height:100%; min-height:0; overflow-y:auto; overflow-x:hidden; }
   .card-head{display:flex; align-items:baseline; justify-content:space-between; gap:8px;}
-  .vessel-name{ font-family:'Archivo', sans-serif; font-weight:800; font-size:17.5px; color:var(--ink); text-wrap:balance; }
-  .vessel-name .code{color:var(--brand);}
-  .voy{ font-family:'IBM Plex Mono', monospace; font-size:17px; font-weight:700; color:var(--ink); white-space:nowrap; }
+  .vessel-name{ font-family:'Archivo', sans-serif; font-weight:800; font-size:20px; color:var(--ink); text-wrap:balance; display:flex; align-items:center; }
+  .v-dot{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; flex-shrink:0;}
+  .voy{ font-family:'IBM Plex Mono', monospace; font-size:18px; font-weight:700; color:var(--ink-soft); white-space:nowrap; }
 
-  .route{ font-size:13.5px; color:var(--ink-soft); font-weight:500; display:flex; align-items:center; gap:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-height: 20px;}
-  .route b{color:var(--ink); font-weight:600;} .route .arrow{color:var(--brand); font-weight:700;}
-  .route-detail{ font-size:13px; color:var(--ink); font-weight:600; line-height:1.4; }
-  .narrative{ font-size:12.5px; color:var(--ink-soft); line-height:1.45; }
+  .status-pill{ display:inline-flex; align-items:center; padding:4px 12px; border-radius:5px; font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:13px; letter-spacing:.05em; text-transform:uppercase; width:fit-content; }
 
-  .rob-chips{ display:flex; flex-wrap:wrap; gap:6px; }
-  .rob-chip{ background:var(--surface-alt); border:1px solid var(--line); border-radius:6px; padding:4px 9px; font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:500; color:var(--ink-soft); white-space:nowrap; }
-  .rob-chip b{ color:var(--ink); font-weight:700; }
-  .rob-chip.rob-low{ background:var(--etd-bg); border-color:var(--etd-bg); color:var(--etd); }
-  .rob-chip.rob-low b{ color:var(--etd); }
+  .route{ font-size:16px; color:var(--ink-soft); font-weight:600; display:flex; align-items:center; gap:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .route b{color:var(--ink); font-weight:700;} .route .arrow{color:var(--brand); font-weight:700;}
+  .chtr-line{ font-size:14.5px; color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-  .rob-fresh-line{ display:flex; align-items:flex-start; gap:6px; font-size:11.5px; line-height:1.4; }
-  .rob-fresh-line .dot{ width:7px; height:7px; border-radius:50%; margin-top:4px; flex-shrink:0; }
-  .rob-fresh-line.fresh{ color:var(--ink-soft); } .rob-fresh-line.fresh .dot{ background:var(--eta); }
-  .rob-fresh-line.stale{ color:var(--pob); font-weight:600; } .rob-fresh-line.stale .dot{ background:var(--pob); }
+  .noon-block{ margin-top:1px; padding-top:9px; border-top:1px dashed var(--line); display:flex; flex-direction:column; gap:6px; }
+  .noon-head{ display:flex; align-items:center; justify-content:space-between; gap:6px; }
+  .noon-label{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; }
+  .noon-time{ font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; white-space:nowrap; }
+  .noon-dest{ font-size:14px; color:var(--ink-soft); display:flex; align-items:center; gap:5px; flex-wrap:wrap; }
+  .noon-dest b{ color:var(--ink); font-weight:700; }
+  .noon-port{ font-size:13px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; }
+  .noon-empty{ font-size:13.5px; color:var(--ink-soft); font-style:italic; padding-top:9px; border-top:1px dashed var(--line); }
 
-  .meta-row{ display:flex; justify-content:space-between; gap:8px; font-size:12.5px; color:var(--ink-soft); align-items: center; min-height: 24px;}
-  .meta-row .chip{ background:var(--surface-alt); border:1px solid var(--line); border-radius:6px; padding:2px 8px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .meta-row .cargo-chip { flex: 1; }
-  .meta-row .laycan-chip { flex: 0 0 120px; text-align: left; }
-  .meta-row .chip b{color:var(--ink); font-weight:600;}
+  .eta-chip{ font-size:12px; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+  .eta-chip.e-future{ background:var(--eta-bg); color:var(--eta); }
+  .eta-chip.e-soon{ background:var(--pob-bg); color:var(--pob); }
+  .eta-chip.e-past{ background:var(--etd-bg); color:var(--etd); }
+  .eta-chip.e-none{ background:var(--surface-alt); color:var(--ink-soft); }
 
-  .rob-row{ display:flex; flex-wrap:nowrap; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--ink-soft); background:var(--surface-alt); border:1px solid var(--line); border-radius:8px; padding:8px 10px; min-height: 36px; }
-  .rob-label{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-right:2px; }
-  .rob-val{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .rob-val b{color:var(--brand); font-weight:700;}
-  .rob-val.rob-low{ background:var(--etd-bg); color:var(--etd); border-radius:5px; padding:2px 6px; }
-  .rob-val.rob-low b{color:var(--etd);}
-
-  .timeline{ flex:1; margin-top:2px; padding-top:8px; border-top:1px dashed var(--line); display:flex; flex-direction:column; justify-content:flex-start; gap:5px; overflow:hidden; }
-  .tl-row{display:flex; align-items:flex-start; gap:8px;}
-  .tl-time{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; font-weight:500; color:var(--ink-soft); min-width:110px; font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:2px; }
-
-  .tl-status{ font-size:13.5px; font-weight:700; padding:4px 10px; border-radius:6px; display:inline-flex; align-items:center; gap:6px; line-height:1.3; }
-  .st-eta{color:var(--eta); background:var(--eta-bg);}
-  .st-etd{color:var(--etd); background:var(--etd-bg);}
-  .st-arrived{color:var(--arrived); background:var(--arrived-bg);}
-  .st-pob{color:var(--pob); background:var(--pob-bg);}
-  .st-allfast{color:var(--allfast); background:var(--allfast-bg);}
+  .rob-line{ display:flex; gap:12px; font-size:13.5px; color:var(--ink-soft); }
+  .rob-line b{ color:var(--ink); font-weight:700; font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; margin-left:3px; }
+  .rob-line .rob-low{ color:var(--etd); font-weight:700; } .rob-line .rob-low b{ color:var(--etd); }
+  .fo-warn{ font-size:13px; font-weight:700; color:var(--etd); background:var(--etd-bg); border-radius:6px; padding:6px 9px; }
 </style>
 </head>
 <body>
@@ -85,7 +71,7 @@
     <span class="live-pill"><span class="live-dot"></span>LIVE</span>
     <div class="update-info">
       <span class="update-label">Cập nhật lúc</span>
-      <span class="update-time">10 Oct 2026, 14:26 ICT</span>
+      <span class="update-time">10 Oct 2026, 13:33 ICT</span>
     </div>
     <span id="clock">--/--/---- | --:--:--</span>
   </div>
@@ -93,58 +79,108 @@
 <main><div class="grid" id="fleet-grid"></div></main>
 
 <script>
-  const FLEET = [{"name":"Aulac Diamond","voy":"ADM-2526","cargo":"9,000 MT Alkylate","route":["Mailiao","Singapore"],"laycan":"09-11/09","robTzOffset":8,"rob":{"fo":"192.3","do":"41.5","fw":"392"},"routeDetail":"HCM (đã dỡ MOGAS, ADM-2426) &rarr; Maliao (load 9KT ALKYLATE) &rarr; Singapore (disc)","narrative":"Please kindly reference Vessel's shifting to Mawlamyine Inner Anchorage asf:","timeline":[{"time":"07 Oct/1402 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"09 Oct/1123 LT","label":"ETA Updated","type":"eta"}],"robTimeDisplay":null},{"name":"Aulac Conifer","voy":"ACF-2126","cargo":"&mdash;","route":["Singapore","PEBGC"],"laycan":"","robTzOffset":8,"rob":{"fo":"394.5","do":"21.1","fw":"130"},"routeDetail":"Bitung (đã dỡ ADF) &rarr; Singapore (ballast, chờ chỉ thị chuyến kế)","narrative":"RE: MT. AULAC CONIFER/ ACF-2226/ LOADING APPROX: 12,000 M3 +/-10%  MOGAS RON 92(3) AT NGHI SON  TERMINAL.","timeline":[{"time":"08 Oct/0451 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"08 Oct/0451 LT","label":"All Fast","type":"allfast"},{"time":"08 Oct/1351 LT","label":"ETA Updated","type":"eta"}],"robTimeDisplay":null},{"name":"Aulac Vision","voy":"AVS-2126","cargo":"Gasoil (DO)","route":["Nghi Sơn","VK102 Nhà Bè"],"laycan":"12-14/09","robTzOffset":7,"rob":{"fo":"310.4","do":"37.7","fw":"138"},"routeDetail":"VK102 Terminal, Nhà Bè (đã dỡ xong GASOIL, AVS-2026) &rarr; Nghi Sơn (load DO) &rarr; VK102 Terminal, Nhà Bè (disc)","narrative":"Please be advised vessel’s departure report asf:","timeline":[{"time":"08 Sep/0449 LT","label":"Departed Vũng Tàu P/S","type":"etd"},{"time":"07 Oct/1712 LT","label":"ETA Updated","type":"eta"},{"time":"07 Oct/1712 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"09 Oct/1529 LT","label":"Arrived","type":"arrived"},{"time":"09 Oct/1812 LT","label":"All Fast","type":"allfast"}],"robTimeDisplay":null},{"name":"Aulac Bella","voy":"ABL-2426","cargo":"12,000 m³ Mogas 92R","route":["Nhà Bè","Nghi Sơn"],"laycan":"07-09/09","robTzOffset":7,"rob":{"fo":"336.0","do":"25.5","fw":"220"},"routeDetail":"HCM (đã dỡ GASOIL, ABL-2326) &rarr; Nghi Sơn (load MOGAS 92R &amp; DO 0.05%S) &rarr; VK102 (disc)","narrative":"PLSBE ADVISED THAT, M/T. AULAC BELLA ETA TO PEBGC AT 11th OCT' 2026 / AM.","timeline":[{"time":"07 Sep/0100 LT","label":"ETD Nhà Bè (departed)","type":"etd"},{"time":"10 Oct/0739 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"10 Oct/0739 LT","label":"All Fast","type":"allfast"},{"time":"10 Oct/0740 LT","label":"ETA Updated","type":"eta"}],"robTimeDisplay":null},{"name":"Aulac Eagle","voy":"AEG-2826","cargo":"Mogas E10 &amp; Diesel","route":["Dung Quất","Phước Khánh"],"laycan":"","robTzOffset":7,"rob":{"fo":"51.8","do":"21.2","fw":"270"},"routeDetail":"Cambodia (đã dỡ GASOIL) &rarr; Dung Quất (đã hoàn tất load MOGAS E10 &amp; DO 0.05%S) &rarr; Phước Khánh (disc)","narrative":"2342LT: POB FOR BERTHING","timeline":[{"time":"07 Sep/1705 LT","label":"ETD Dung Quất (departed)","type":"etd"},{"time":"07 Oct/1350 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"07 Oct/1350 LT","label":"Arrived","type":"arrived"},{"time":"07 Oct/1350 LT","label":"All Fast","type":"allfast"},{"time":"08 Oct/0714 LT","label":"ETA Updated","type":"eta"}],"robTimeDisplay":null},{"name":"Aulac Aurora","voy":"AAR-2026","cargo":"15,000 MT Jet A-1","route":["Maptaphut","Batangas"],"laycan":"10-12/09","robTzOffset":7,"rob":{"fo":"269.7","do":"48.8","fw":"239"},"routeDetail":"Sihanoukville (đã dỡ xong GASOIL, AAR-1926) &rarr; Map Ta Phut, Thái Lan (load JET A-1) &rarr; Himmel Batangas, Philippines (disc)","narrative":"Subject: RE: [CẬP NHẬT] | SAILING INSTRUCTION | AULAC AURORA V. AAR-2426 | LAYCAN 15-17 OCT 2026 | RAYONG-CAI MEP-NHA BE | 16,500 +/-5% MT GASOIL 0.05 PCT SULPHUR (LOAD CLOSE TO BUT MAX 17,200 MT)","timeline":[{"time":"07 Oct/1706 LT","label":"ETA Updated","type":"eta"},{"time":"07 Oct/1707 LT","label":"ETD Updated","type":"etd"},{"time":"07 Oct/1707 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"07 Oct/1707 LT","label":"All Fast","type":"allfast"},{"time":"09 Oct/1144 LT","label":"Arrived","type":"arrived"}],"robTimeDisplay":null},{"name":"Aulac Sirius","voy":"ASR-2426","cargo":"5-10 KT Jet A-1","route":["Singapore","Sriracha"],"laycan":"","robTzOffset":7,"rob":{"fo":"474.1","do":"74.5","fw":"95"},"routeDetail":"Sriracha (đã cập cầu, đang load JET A-1) &rarr; HCM (disc)","narrative":"1142lt: NOR Tendered.","timeline":[{"time":"07 Sep/2200 LT","label":"Arrived Sriracha anchorage","type":"arrived"},{"time":"07 Oct/1659 LT","label":"NOR Tendered / POB","type":"pob"},{"time":"07 Oct/1659 LT","label":"All Fast","type":"allfast"},{"time":"08 Oct/1225 LT","label":"ETA Updated","type":"eta"}],"robTimeDisplay":null},{"name":"Aulac Mission","voy":"AMS-2126","cargo":"79KB Gasoil 10ppm","route":["SRC Singapore","Cái Mép"],"laycan":"10-12/09","robTzOffset":7,"rob":{"fo":"313.936","do":"69.233","fw":"266","updatedAt":1791609006000},"routeDetail":"Singapore (đã hoàn tất load GASOIL, SRC Terminal) &rarr; Cái Mép Hải Linh Terminal, Vũng Tàu (disc)","narrative":"Please be advised that vessel’s ETA to BATANGAS PS on 17 OCT. 2026 @ 2100LT, (RVTG, IAGW & WP)","timeline":[{"time":"08 Oct/1000 LT","label":"ETA Updated","type":"eta"},{"time":"08 Oct/1108 LT","label":"ETD Updated","type":"etd"}],"robTimeDisplay":"10/10/2026 12:10 giờ tàu (GMT+7)","robFreshNote":"","robFreshLabel":"Mới","robFreshClass":"fresh"}];
+  const FLEET = [{"code":"ADM","name":"Aulac Diamond","group":"80KB","voyage":{"Nam":"2026-10-26T00:00:00","Status":"Perform","Code":1,"Vsl":"ADM","Voy No":"ADM-2826","Laycan":"14-16 OCT","Charterer":"PETIMEX","CP Date":null,"Cargo":"MG","Note":null,"LP Country":"SINGAPORE","LP Port":"JPTT","DP Country":"VIETNAM","DP Port":"PHUOC KHANH","Intinerary":"Singapore: 13-15 Oct\nPhuoc Khanh: 17-19 Oct","Schedule":"ETA 13/07:00 - ETB tbr","Freight":210000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":11000,"Laytime":90,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"ADM-2726","cargo":"GO","lp":"PENGERANG","dp":"MOULMEIN","cpdate":"2026-09-11T00:00:00"},{"voy":"ADM-2626","cargo":"GO","lp":"BUKOM","dp":"SIHANOUKVILLE","cpdate":"2026-09-08T00:00:00"},{"voy":"ADM-2526","cargo":"ALK","lp":"MAILIAO","dp":"EXXON","cpdate":"2026-08-17T00:00:00"}]},"noon_report":{"vessel":"Aulac Diamond","voy":"ADM-2826","report_dt":"2026-10-10T12:00:00+06:30","report_label":"10/10 12:00LT","status":"underway","location_label":"UNDERWAY TO PWBGA, SINGAPORE","current_port":null,"dest_port":"PWBGA, SINGAPORE","eta":"2026-10-13T02:00:00+08:00","eta_label":"13/10 02:00LT","arr":null,"arr_label":null,"etb":null,"etb_label":"tbr","rob_fo":208.466,"rob_do":38.137,"rob_fw":84,"source_subject":"AULAC DIAMOND/ ADM-2826 / DAILY NOON REPORT","allfast":null,"allfast_label":null,"etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr"}},{"code":"ACF","name":"Aulac Conifer","group":"80KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":2,"Vsl":"ACF","Voy No":"ACF-2226","Laycan":"06-08 OCT\n","Charterer":"THALEXIM","CP Date":null,"Cargo":"MG","Note":null,"LP Country":"VIETNAM","LP Port":"NGHI SON","DP Country":"VIETNAM","DP Port":"VK102","Intinerary":"Nghi Son: 04-08-08 Oct\nVK102: 11-13 Oct","Schedule":"\nETA 11/13:00 - ETB tbr","Freight":null,"FRT UNIT":null,"Frt Type":null,"Dem":null,"Laytime":null,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"ACF-2126","cargo":"GO","lp":"PORT DICKSON","dp":"TAWAU + SANDAKAN","cpdate":"2026-09-11T00:00:00"},{"voy":"ACF-2126","cargo":"MG&GO","lp":"2 TMNL","dp":"JAKARTA","cpdate":null},{"voy":"ACF-2026#","cargo":"GO","lp":"TJ BIN","dp":"BITUNG","cpdate":"2026-07-18T00:00:00"}]},"noon_report":{"vessel":"Aulac Conifer","voy":"ACF-2226","report_dt":"2026-10-10T12:00:00+07:00","report_label":"10/10 12:00LT","status":"underway","location_label":"UNDERWAY TO VUNG TAU P/S","current_port":null,"dest_port":"VUNG TAU P/S","eta":"2026-10-11T12:00:00+07:00","eta_label":"11/10 12:00LT","arr":null,"arr_label":null,"etb":"2026-10-11T16:30:00+07:00","etb_label":"11/10 16:30LT (est)","rob_fo":108.607,"rob_do":20.579,"rob_fw":30,"source_subject":"MT. AULAC CONIFER/ ACF-2226/ MOGAS 92 /NGHI SON- VK102 NHA BE/LC 6-8 OCT/ NOON REPORT","allfast":null,"allfast_label":null,"etc":null,"etc_label":"tbr"}},{"code":"AVS","name":"Aulac Vision","group":"80KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":3,"Vsl":"AVS","Voy No":"AVS-2426#","Laycan":"05-07 OCT\n\n","Charterer":"PETIMEX","CP Date":null,"Cargo":"E10&GO","Note":"TRỄ LAYCAN\nSIRE VETTING","LP Country":"VIETNAM","LP Port":"DUNG QUAT","DP Country":"VIETNAM","DP Port":"PHUOC KHANH","Intinerary":"Dung Quat: 09-10 Oct\nPhuoc Khanh: 12-14 Oct","Schedule":"ETA 09/15:00 - ETB tbr","Freight":300,"FRT UNIT":"VND","Frt Type":"PER LIT BSS B/L FIG","Dem":11000,"Laytime":90,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"AVS-2326","cargo":"MG&GO","lp":"DUNG QUAT","dp":"VK102","cpdate":null},{"voy":"AVS-2226","cargo":"MG","lp":"NGHI SON","dp":"VK102","cpdate":null},{"voy":"AVS-2126","cargo":"GO","lp":"NGHI SON","dp":"NHA BE","cpdate":"2026-09-10T00:00:00"}]},"noon_report":{"vessel":"Aulac Vision","voy":"AVS-2426","report_dt":"2026-10-10T12:00:00+07:00","report_label":"10/10 12:00LT","status":"working","location_label":"ALONGSIDE DUNG QUAT P/S - LOADING COMPLETED, AWAITING DEPARTURE","current_port":"DUNG QUAT P/S","dest_port":"DUNG QUAT","eta":"2026-10-09T15:00:00+07:00","eta_label":"09/10 15:00LT","arr":"2026-10-09T15:06:00+07:00","arr_label":"09/10 15:06LT","etb":"2026-10-09T15:06:00+07:00","etb_label":"09/10 15:06LT","rob_fo":305.363,"rob_do":36.805,"rob_fw":211,"source_subject":"MT. AULAC VISION/ AVS-2426/ MOGAS E10 & DIESEL/DUNG QUAT– PHUOC KHANH/ NOON REPORT - 10 OCT 2026","allfast":"2026-10-09T15:36:00+07:00","allfast_label":"09/10 15:36LT","etc":"2026-10-10T11:30:00+07:00","etc_label":"10/10 11:30LT","etd":null,"etd_label":"tbr"}},{"code":"ABL","name":"Aulac Bella","group":"80KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":4,"Vsl":"ABL","Voy No":"ABL-2726#","Laycan":"03-05 OCT\n","Charterer":"PETIMEX","CP Date":null,"Cargo":"MG","Note":"TRỄ LAYCAN","LP Country":"MALAYSIA","LP Port":"PENGERANG","DP Country":"VIETNAM","DP Port":"PHUOC KHANH","Intinerary":"Pengerang: 07-09-10 Oct\nSingapore (bunker): 11 Oct\nPhuoc Khanh: 13-14 Oct","Schedule":"ARR 07/16:54 - ETB 10/01:00\nETA 11\nETA 13/pm - ETB tbr","Freight":210000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":11000,"Laytime":90,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"ABL-2626","cargo":"CPP","lp":"DUNG QUAT","dp":"PHUOC KHANH","cpdate":null},{"voy":"ABL-2526","cargo":"MG&GO","lp":"NGHI SON","dp":"VK102","cpdate":null},{"voy":"ABL-2426","cargo":"MG&GO","lp":"NGHI SON","dp":"VK102","cpdate":null}]},"noon_report":{"vessel":"Aulac Bella","voy":"ABL-2726","report_dt":"2026-10-10T12:00:00+08:00","report_label":"10/10 12:00LT","status":"working","location_label":"ALONGSIDE PENGERANG TERMINAL (BERTH B603) - LOADING COMMENCED","current_port":"PENGERANG, MALAYSIA","dest_port":"PENGERANG, MALAYSIA","eta":"2026-10-07T15:00:00+08:00","eta_label":"07/10 15:00LT","arr":"2026-10-07T16:54:00+08:00","arr_label":"07/10 16:54LT","allfast":"2026-10-10T08:36:00+08:00","allfast_label":"10/10 08:36LT","etb":"2026-10-10T08:36:00+08:00","etb_label":"10/10 08:36LT","etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr","rob_fo":102.069,"rob_do":18.217,"rob_fw":128,"source_subject":"AULAC BELLA/ ABL-2726/ 03-05 OCT 2026 / LOADING 8KT +/- 5% MG92R AT PENGERANG/ DAILY POSITION REPORT"}},{"code":"AEG","name":"Aulac Eagle","group":"80KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":5,"Vsl":"AEG","Voy No":"AEG-3226","Laycan":"10-12 OCT","Charterer":"PETIMEX","CP Date":null,"Cargo":"GO","Note":null,"LP Country":"SINGAPORE","LP Port":"SRC","DP Country":"VIETNAM","DP Port":"PHUOC KHANH","Intinerary":"Singapore: 12-12-13 Oct\nPhuoc Khanh: 15-17 Oct","Schedule":"ETA 12/10:00 - ETB 12/uoa","Freight":210000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":11000,"Laytime":72,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"AEG-3126#","cargo":"CON","lp":"TJ LANGSAT","dp":"YANGON","cpdate":"2026-09-02T00:00:00"},{"voy":"AEG-3026","cargo":"GO","lp":"RAYONG","dp":"NHA BE","cpdate":null},{"voy":"AEG-2926#","cargo":"GO","lp":"SRC","dp":"SIHANOUKVILLE","cpdate":"2026-08-27T00:00:00"}]},"noon_report":{"vessel":"Aulac Eagle","voy":"AEG-3226","report_dt":"2026-10-10T12:00:00+07:00","report_label":"10/10 12:00LT","status":"underway","location_label":"UNDERWAY TO WPBGA, SINGAPORE","current_port":null,"dest_port":"WPBGA, SINGAPORE","eta":"2026-10-12T07:00:00+08:00","eta_label":"12/10 07:00LT","arr":null,"arr_label":null,"allfast":null,"allfast_label":null,"etb":null,"etb_label":"tbr","etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr","rob_fo":291.752,"rob_do":35.95,"rob_fw":166,"source_subject":"MT. AULAC EAGLE/ AEG-3226/GASOIL/SRC- PHUOC KHANH/ NOON REPORT"}},{"code":"AAR","name":"Aulac Aurora","group":"100KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":6,"Vsl":"AAR","Voy No":"AAR-2326","Laycan":"04-05 OCT\nETA 09","Charterer":"PNX SINGAPORE","CP Date":"2026-09-18T00:00:00","Cargo":"GO","Note":"TRẾ LAYCAN\n","LP Country":"CHINA","LP Port":"BASUO","DP Country":"VIETNAM","DP Port":"VUNG TAU","Intinerary":"Basuo: 09-10-11 Oct\nCai Mep: 13-15 Oct","Schedule":"ETA 09/12:30 - ETB 10/11:00","Freight":280000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":13000,"Laytime":84,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"AAR-2226","cargo":"GO","lp":"BASUO","dp":"SIHANOUKVILLE","cpdate":"2026-09-11T00:00:00"},{"voy":"AAR-2126#","cargo":"JET","lp":"HUIZHOU","dp":"VAN PHONG","cpdate":"2026-09-11T00:00:00"},{"voy":"AAR-2026","cargo":"JET","lp":"MAPTAPHUT","dp":"BATANGAS","cpdate":"2026-08-24T00:00:00"}]},"noon_report":{"vessel":"Aulac Aurora","voy":"AAR-2326","report_dt":"2026-10-10T12:00:00+08:00","report_label":"10/10 12:00LT","status":"working","location_label":"ALONGSIDE BASUO TERMINAL, CHINA - BERTHED","current_port":"BASUO TERMINAL, CHINA","dest_port":"BASUO P/S, CHINA","eta":"2026-10-09T13:00:00+08:00","eta_label":"09/10 13:00LT","arr":"2026-10-09T12:30:00+08:00","arr_label":"09/10 12:30LT","allfast":"2026-10-10T09:12:00+08:00","allfast_label":"10/10 09:12LT","etb":"2026-10-10T09:12:00+08:00","etb_label":"10/10 09:12LT","etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr","rob_fo":530.779,"rob_do":26.506,"rob_fw":125,"source_subject":"AULAC AURORA/ AAR-2326/ DAILY NOON REPORT AT PORT"}},{"code":"ASR","name":"Aulac Sirius","group":"100KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":7,"Vsl":"ASR","Voy No":"ASR-2726","Laycan":"14-16 OCT","Charterer":"BLACKHEM","CP Date":"2026-09-30T00:00:00","Cargo":"JET","Note":null,"LP Country":"THAILAND","LP Port":"SRIRACHA","DP Country":"VIETNAM","DP Port":"NHA BE","Intinerary":"Sriracha: 13-15 Oct\nNha Be: 17-19 Oct","Schedule":"ETA 13/09:00 - ETB tbr","Freight":240000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":12000,"Laytime":72,"Com":null,"Broker":null,"Remark":null,"_last3cargo":[{"voy":"ASR-2626#","cargo":"GO","lp":"SING PORT","dp":"PHUOC KHANH","cpdate":null},{"voy":"ASR-2526","cargo":"MG&GO","lp":"TANKSTORE+ADVARIO","dp":"YANGON","cpdate":"2026-09-09T00:00:00"},{"voy":"ASR-2426","cargo":"JET","lp":"SRIRACHA","dp":"CAT LAI","cpdate":"2026-08-28T00:00:00"}]},"noon_report":{"vessel":"Aulac Sirius","voy":"ASR-2726","report_dt":"2026-10-09T12:00:00+07:00","report_label":"09/10 12:00LT","status":"underway","location_label":"UNDERWAY TO SRIRACHA, THAILAND","current_port":null,"dest_port":"SRIRACHA, THAILAND","eta":"2026-10-13T09:00:00+07:00","eta_label":"13/10 09:00LT","rob_fo":673.869,"rob_do":73.09,"rob_fw":45,"source_subject":"AULAC SIRIUS V.ASR-2726/ SRIRACHA/ 10K +/-10% MT JET A-1/NOON REPORT","arr":null,"arr_label":null,"etb":null,"etb_label":"tbr","allfast":null,"allfast_label":null,"etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr"}},{"code":"AMS","name":"Aulac Mission","group":"100KB","voyage":{"Nam":"2026-10-01T00:00:00","Status":"Perform","Code":8,"Vsl":"AMS","Voy No":"AMS-2426","Laycan":"08-10 OCT\nETA 11","Charterer":"PTT SINGAPORE","CP Date":"2026-09-22T00:00:00","Cargo":"JET","Note":"TRỄ LAYCAN","LP Country":"THAILAND","LP Port":"MAPTAPHUT","DP Country":"PHILIPPINES","DP Port":"BATANGAS","Intinerary":"Maptaphut: 11-11-12 Oct\nBatangas: 17-19 Oct","Schedule":"ETA 11/09:00 - ETB 11/11:00\nETA 17/21:00 - ETB tbr","Freight":423000,"FRT UNIT":"USD","Frt Type":"LUMPSUM","Dem":15000,"Laytime":72,"Com":0.05,"Broker":"AE MARINE","Remark":null,"_last3cargo":[{"voy":"AMS-2326","cargo":null,"lp":"SING PORT","dp":"WAYAME","cpdate":"2026-09-14T00:00:00"},{"voy":"AMS-2326","cargo":"MG","lp":"PENGERANG","dp":"PRAI","cpdate":"2026-09-29T00:00:00"},{"voy":"AMS-2226","cargo":"GO","lp":"ADVARIO","dp":"WAYAME","cpdate":"2026-09-07T00:00:00"}]},"noon_report":{"vessel":"Aulac Mission","voy":"AMS-2426","report_dt":"2026-10-10T12:00:00+07:00","report_label":"10/10 12:00LT","status":"underway","location_label":"UNDERWAY TO MAPTAPHUT P/S","current_port":null,"dest_port":"MAPTAPHUT P/S","eta":"2026-10-11T09:00:00+08:00","eta_label":"11/10 09:00LT","arr":null,"arr_label":null,"allfast":null,"allfast_label":null,"etb":null,"etb_label":"tbr","etc":null,"etc_label":"tbr","etd":null,"etd_label":"tbr","rob_fo":313.936,"rob_do":69.233,"rob_fw":266,"source_subject":"AULAC MISSION/ AMS-2426 / LOADING 14KT +/-10%  JET A1 AT MAP TA PHUT, THAILAND/ DAILY NOON REPORT"}}];
+
+  // Port nguyên từ artifact "Aulac Fleet Console" (VESSEL_COLORS/STATUS_COLORS), giữ đúng bảng màu.
+  const VESSEL_COLORS = {
+    ADM:{bg:'#002060',fg:'#ffffff'}, ACF:{bg:'#fabf8f',fg:'#101a24'}, AVS:{bg:'#0070c0',fg:'#ffffff'},
+    ABL:{bg:'#ffc000',fg:'#101a24'}, AEG:{bg:'#cc6600',fg:'#ffffff'}, AAR:{bg:'#dfe1e3',fg:'#101a24'},
+    ASR:{bg:'#4f6128',fg:'#ffffff'}, AMS:{bg:'#d6e3bc',fg:'#101a24'}
+  };
+  const STATUS_COLORS = {
+    'Done':{bg:'#d8d8d8',fg:'#000000'}, 'Perform':{bg:'#ffcc00',fg:'#000000'}, 'Lifted':{bg:'#00b0f0',fg:'#000000'},
+    'Onsub':{bg:'#00cc66',fg:'#000000'}, 'Offer':{bg:'#dbe5f1',fg:'#000000'}, 'Open':{bg:'#ff6600',fg:'#000000'},
+    'Release':{bg:'#ffc7ce',fg:'#9c0006'}, 'Cancel':{bg:'#ffc7ce',fg:'#9c0006'}, 'Working':{bg:'#b4a7d6',fg:'#2c2350'},
+    'Fail Sub':{bg:'#e59797',fg:'#7a1014'}
+  };
+
+  function esc(s){ return (s===null||s===undefined) ? '' : String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function statusPillHtml(status){
+    const c = STATUS_COLORS[status];
+    if(!c) return `<span class="status-pill" style="background:var(--surface-alt);color:var(--ink-soft)">${esc(status)||'—'}</span>`;
+    return `<span class="status-pill" style="background:${c.bg};color:${c.fg}">${esc(status)}</span>`;
+  }
+
+  // Port nguyên công thức đếm ngược ETA từ artifact (etaChipHtml) — tính LẠI mỗi lần trang được xem/refresh,
+  // dựa trên đồng hồ thật của người xem, không phải thời điểm script chạy.
+  function etaChipHtml(iso){
+    if(!iso) return '';
+    const eta = new Date(iso);
+    if(isNaN(eta)) return '';
+    const diffH = (eta.getTime() - Date.now()) / 3600000;
+    let cls, label;
+    if(diffH < 0){ cls='e-past'; label='Đã qua ETA'; }
+    else if(diffH < 24){ cls='e-soon'; const h=Math.round(diffH); label=`Còn ${h}h`; }
+    else { cls='e-future'; const d=Math.floor(diffH/24), h=Math.round(diffH%24); label=`Còn ${d}n ${h}h`; }
+    return `<span class="eta-chip ${cls}">${label}</span>`;
+  }
+
+  function fmtRob(n){ return (n===null||n===undefined) ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}); }
+
+  // noonBlockHtml — port nguyên 4 nhánh trạng thái từ Console (working / waiting_berth / underway / khác-chưa-phân-loại),
+  // vì noon_reports của Console đã có sẵn location_label/current_port/dest_port/eta/arr_label/allfast_label/etc_label/etd_label...
+  function noonBlockHtml(code, nr){
+    if(!nr) return '<div class="noon-empty">Chưa có Noon Report</div>';
+    let destLine, chip, portLine = '';
+    if(nr.status === 'working'){
+      destLine = `${esc(nr.location_label||'Alongside')} <b>${esc(nr.current_port||'—')}</b>`;
+      chip = '<span class="eta-chip e-soon">Làm hàng</span>';
+      portLine = `<div class="noon-port">Allfast ${esc(nr.allfast_label)||'—'} &middot; ETC ${esc(nr.etc_label)||'tbr'} &middot; ETD ${esc(nr.etd_label)||'tbr'}</div>`;
+    } else if(nr.status === 'waiting_berth'){
+      destLine = `${esc(nr.location_label||'Chờ cầu')} <b>${esc(nr.current_port||'—')}</b>`;
+      chip = '<span class="eta-chip e-none">Chờ cầu</span>';
+      portLine = `<div class="noon-port">ARR ${esc(nr.arr_label)||'—'} &middot; ETB ${esc(nr.etb_label)||'tbr'}</div>`;
+    } else if(nr.status !== 'underway'){
+      destLine = `${esc(nr.location_label||'Alongside')} <b>${esc(nr.current_port||'—')}</b>`;
+      chip = '<span class="eta-chip e-none">Tại cảng</span>';
+    } else {
+      destLine = `&rarr; <b>${esc(nr.dest_port||'—')}</b>${nr.eta_label ? ' &middot; ETA '+esc(nr.eta_label) : ''}`;
+      chip = etaChipHtml(nr.eta) || '<span class="eta-chip e-none">—</span>';
+    }
+    const FO_LOW_MT = 200;
+    const foLow = typeof nr.rob_fo === 'number' && nr.rob_fo < FO_LOW_MT;
+    const foWarn = foLow ? `<div class="fo-warn">FO thấp (dưới ${FO_LOW_MT} MT) — xem xét cần cấp dầu</div>` : '';
+    return `<div class="noon-block" title="${esc(nr.source_subject||'')}">
+      <div class="noon-head"><span class="noon-label">Noon Report</span><span class="noon-time">${esc(nr.report_label)||'—'}</span></div>
+      <div class="noon-dest">${destLine} ${chip}</div>
+      ${portLine}
+      <div class="rob-line"><span class="${foLow?'rob-low':''}">FO<b>${fmtRob(nr.rob_fo)}</b></span><span>DO<b>${fmtRob(nr.rob_do)}</b></span><span>FW<b>${fmtRob(nr.rob_fw)}</b></span></div>
+      ${foWarn}
+    </div>`;
+  }
 
   function renderFleet(){
     const grid = document.getElementById('fleet-grid');
-    grid.innerHTML = FLEET.map(v => `
-      <article class="card">
+    grid.innerHTML = FLEET.map(v => {
+      const vc = VESSEL_COLORS[v.code];
+      return `
+      <article class="card" style="border-left-color:${vc?vc.bg:'var(--line)'}">
         <div class="card-head">
-          <span class="vessel-name"><span class="code">${v.voy.split('-')[0]}</span> &middot; ${v.name}</span>
-          <span class="voy">${v.voy}</span>
+          <span class="vessel-name">${vc?`<span class="v-dot" style="background:${vc.bg}"></span>`:''}${v.code} &middot; ${esc(v.name)}</span>
+          <span class="voy">${esc(v.voy)}</span>
         </div>
 
-        ${v.routeDetail ? `
-        <div class="route-detail">${v.routeDetail}</div>` : `
+        ${statusPillHtml(v.voyStatus)}
+
         <div class="route">
-          <b>${v.route[0]}</b>${v.route[1] ? `<span class="arrow">&#8594;</span><b>${v.route[1]}</b>` : ''}
-        </div>`}
-
-        ${v.narrative ? `<div class="narrative">${v.narrative}</div>` : ''}
-
-        <div class="meta-row">
-          <span class="chip cargo-chip"><b>Cargo</b> ${v.cargo || '&mdash;'}</span>
-          <span class="chip laycan-chip"><b>Laycan</b> ${v.laycan || '&mdash;'}</span>
+          <b>${esc(v.route[0])||'—'}</b>${v.route[1] ? `<span class="arrow">&#8594;</span><b>${esc(v.route[1])}</b>` : ''}
         </div>
 
-        ${v.rob ? `
-        <div class="rob-chips">
-          <span class="rob-chip${parseFloat(v.rob.fo) < 200 ? ' rob-low' : ''}">FO: <b>${v.rob.fo}</b> MT</span>
-          <span class="rob-chip">DO: <b>${v.rob.do}</b> MT</span>
-          <span class="rob-chip">FW: <b>${v.rob.fw}</b> MT</span>
-        </div>` : ''}
+        <div class="chtr-line">${esc(v.charterer)||''}${v.charterer&&v.laycan?' &middot; ':''}${v.laycan?'Laycan '+esc(v.laycan):''}</div>
 
-        ${v.robTimeDisplay ? `
-        <div class="rob-fresh-line ${v.robFreshClass}">
-          <span class="dot"></span>
-          <span>ROB tính lúc: ${v.robTimeDisplay} ${v.robFreshNote || ''} &middot; ${v.robFreshLabel}</span>
-        </div>` : ''}
-
-        <div class="timeline">
-          ${v.timeline.map(t => `
-            <div class="tl-row">
-              <span class="tl-time">${t.time}</span>
-              <span class="tl-status st-${t.type}">${t.label}</span>
-            </div>
-          `).join('')}
-        </div>
+        ${noonBlockHtml(v.code, v.pos)}
       </article>
-    `).join('');
+    `;
+    }).join('');
   }
 
   renderFleet();
   function updateClock(){ const n = new Date(); const d = String(n.getDate()).padStart(2,'0'); const m = String(n.getMonth()+1).padStart(2,'0'); const y = n.getFullYear(); document.getElementById('clock').textContent = `${d}/${m}/${y} | ${n.toLocaleTimeString('vi-VN')}`; }
   updateClock(); setInterval(updateClock, 1000);
+  // Đếm ngược ETA (etaChipHtml) tự tính lại theo đồng hồ người xem mỗi khi renderFleet() chạy — vẽ lại toàn bộ
+  // fleet-grid mỗi phút để badge "Còn Xh" luôn khớp, không cần đợi trang tự refresh sau 20 phút.
+  setInterval(renderFleet, 60000);
 </script>
 </body>
 </html>
